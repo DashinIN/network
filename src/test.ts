@@ -1,0 +1,1 @@
+export const func = (arg: number): string => { console.log("hi"); return ""}
