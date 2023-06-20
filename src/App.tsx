@@ -3,7 +3,7 @@ import {Suspense} from "react"
 import { AboutPageAsync } from "./Pages/AboutPage/AboutPage.async";
 import { MainPageAsync } from "./Pages/MainPage/MainPage.async";
 import {useTheme} from "./theme/useTheme"
-
+import {classNames} from "./helpers/classNames/classNames"
 
 import "./styles/index.scss"
 
@@ -14,7 +14,7 @@ const App = () => {
 
 
     return(
-        <div className={`app ${theme}`}>
+        <div className={classNames("app", {}, [theme])}>
             <button onClick={toggleTheme}>TOGGLE</button>
             <Link to={"/"}>main</Link>
             <Link to={"/about"}>about</Link>
