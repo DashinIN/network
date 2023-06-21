@@ -2,11 +2,12 @@ import { Routes, Route, Link } from "react-router-dom";
 import {Suspense} from "react"
 
 import { useTheme } from "./providers/ThemeProvider";
-import { classNames } from "helpers/classNames/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import { AboutPage } from "Pages/AboutPage";
 import { MainPage } from "Pages/MainPage";
 
 import "./styles/index.scss"
+
 
 
 
