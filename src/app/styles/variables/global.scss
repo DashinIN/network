@@ -1,16 +1,11 @@
 :root {
-
-    --font-family-main: 'Montserrat', Serif;
-
+    --font-family-main: 'Montserrat', serif;
     --font-fize-m: 16px;
     --font-line-m: 24px;
     --font-m: var(--font-fize-m) / var(--font-line-m) var(--font-family-main);
-
     --font-fize-l: 24px;
     --font-line-l: 32px;
     --font-l: var(--font-fize-l) / var(--font-line-l) var(--font-family-main);
-
-
     --navbar-height: 50px;
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
