@@ -4,6 +4,7 @@
  */
 
 import type { Config } from 'jest';
+import path from 'path';
 
 const config: Config = {
     // All imported modules in your tests should be mocked automatically
@@ -36,6 +37,10 @@ const config: Config = {
         'node_modules',
     ],
 
+    modulePaths: [
+        '<rootDir>src',
+    ],
+
     // The root directory that Jest should scan for tests and modules within
     rootDir: '../../',
 
@@ -43,6 +48,13 @@ const config: Config = {
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+
+    moduleNameMapper: {
+        '\\.(s?css)$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
 
     // automock: false,
 
