@@ -1,23 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Loader } from './Loader';
+import { Sidebar } from './Sidebar';
 
-const meta: Meta<typeof Loader> = {
-    title: 'shared/Loader',
-    component: Loader,
+const meta: Meta<typeof Sidebar> = {
+    title: 'widgets/Sidebar',
+    component: Sidebar,
     tags: ['autodocs'],
 };
 
 export default meta;
-type Story = StoryObj<typeof Loader>;
+type Story = StoryObj<typeof Sidebar>;
 
 export const Light: Story = {
-    args: {},
+    args: {
+    },
 };
 
 export const Dark: Story = {
-    args: {},
+    args: {
+
+    },
     decorators: [
         ThemeDecorator(Theme.DARK),
     ],

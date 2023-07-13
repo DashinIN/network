@@ -1,55 +1,50 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { AppLink, AppLinkTheme } from './AppLink';
 
-
 const meta: Meta<typeof AppLink> = {
-  title: 'shared/AppLink',
-  component: AppLink,
-  tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-  args: {
-    to: '/',
-  }
+    title: 'shared/AppLink',
+    component: AppLink,
+    tags: ['autodocs'],
+    args: {
+        to: '/',
+    },
 };
 
 export default meta;
 type Story = StoryObj<typeof AppLink>;
 
 export const Primary: Story = {
-  args: {
-    children: "test text",
-    theme: AppLinkTheme.PRIMARY
-  }
+    args: {
+        children: 'test text',
+        theme: AppLinkTheme.PRIMARY,
+    },
 };
 
 export const Secondary: Story = {
-  args: {
-    children: "test text",
-    theme: AppLinkTheme.SECONDARY
-  },
+    args: {
+        children: 'test text',
+        theme: AppLinkTheme.SECONDARY,
+    },
 };
 
 export const PrimaryDark: Story = {
     args: {
-      children: "test text",
-      theme: AppLinkTheme.PRIMARY
+        children: 'test text',
+        theme: AppLinkTheme.PRIMARY,
     },
-     decorators: [
+    decorators: [
         ThemeDecorator(Theme.DARK),
     ],
-  };
-  
-  export const SecondaryDark: Story = {
+};
+
+export const SecondaryDark: Story = {
     args: {
-      children: "test text",
-      theme: AppLinkTheme.SECONDARY
+        children: 'test text',
+        theme: AppLinkTheme.SECONDARY,
     },
-     decorators: [
+    decorators: [
         ThemeDecorator(Theme.DARK),
     ],
-  };
-  
+};
