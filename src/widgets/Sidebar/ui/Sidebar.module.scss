@@ -10,6 +10,12 @@
     width: var(--sidebar-width-collapsed);
 }
 
+.collapsedBtn {
+    position: absolute;
+    right: -32px;
+    bottom: 32px;
+}
+
 .switchers {
     position: absolute;
     width: 100%;
@@ -21,3 +27,4 @@
 .lang {
     margin-left: 20px;
 }
+
