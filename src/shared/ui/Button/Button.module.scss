@@ -4,29 +4,47 @@
     padding: 10px 15px;
 }
 
-.clear {
+.clear, .clearInverted {
     padding: 0;
     border: none;
     background: none;
     outline: none;
 }
 
+.clearInverted {
+    color: var(--primary-color);
+}
+
+.outline, .outlineInverted {
+    background: none;
+}
+
+
 .outline {
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
-    background: none;
+
+}
+
+.outlineInverted {
+    border: 1px solid var(--inverted-primary-color);
+    color: var(--inverted-primary-color);
+}
+
+.background, .backgroundInverted {
+    border: none;
 }
 
 .background {
     background: var(--bg-color);
     color: var(--primary-color);
-    border: none;
+ 
 }
 
 .backgroundInverted {
     color: var(--inverted-primary-color);
     background: var(--inverted-bg-color);
-    border: none;
+  
 
 }
 
