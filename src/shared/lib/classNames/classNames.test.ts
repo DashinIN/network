@@ -2,22 +2,25 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 describe('classNames', () => {
     test('with only first param', () => {
-        expect(classNames('someClass')).toBe('someClass ');
+        expect(classNames('someClass')).toBe('someClass');
     });
     test('with additional class', () => {
-        const expected = 'someClass class1 class2 ';
+        const expected = 'someClass class1 class2';
         expect(classNames('someClass', {}, ['class1', 'class2'])).toBe(expected);
     });
     test('with modes class', () => {
-        const expected = 'someClass class1 class2 hovered';
+        const expected = 'someClass class1 class2 hovered clicked';
         expect(classNames(
             'someClass',
-            { hovered: true },
+            {
+                hovered: true,
+                clicked: true,
+            },
             ['class1', 'class2'],
         )).toBe(expected);
     });
     test('with modes class', () => {
-        const expected = 'someClass class1 class2 ';
+        const expected = 'someClass class1 class2';
         expect(classNames(
             'someClass',
             { hovered: false },
@@ -25,7 +28,7 @@ describe('classNames', () => {
         )).toBe(expected);
     });
     test('with modes class', () => {
-        const expected = 'someClass class1 class2 ';
+        const expected = 'someClass class1 class2';
         expect(classNames(
             'someClass',
             { hovered: undefined },
