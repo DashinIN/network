@@ -9,5 +9,7 @@
     "Выбросить ошибку": "Throw error",
     "Короткий язык": "En",
     "increment": "increment",
-    "decrement": "decrement"
+    "decrement": "decrement",
+    "Логин": "Login",
+    "Пароль": "Password"
 }
