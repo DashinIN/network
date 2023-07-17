@@ -5,6 +5,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { getLoginState } from 'features/AuthByUsername';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions } from '../../model/slice/loginSlice';
 import s from './LoginForm.module.scss';
@@ -34,10 +35,9 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
     return (
         <div className={classNames(s.LoginForm, {}, [className])}>
+            <Text title={t('Форма авторизации')} />
             {error && (
-                <div>
-                    {error}
-                </div>
+                <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />
             )}
             <Input
                 type="text"
