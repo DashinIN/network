@@ -26,10 +26,10 @@
     }
   ],
   "profile": {
-    "firstname": "имя",
+    "firstname": "имя123",
     "lastname": "фамилия",
     "age": 22,
-    "currency": "USD",
+    "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",
     "username": "admin",
