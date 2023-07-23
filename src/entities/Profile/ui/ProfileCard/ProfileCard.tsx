@@ -1,44 +1,88 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { Loader } from 'shared/ui/Loader/Loader';
 import s from './ProfileCard.module.scss';
+import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
- className?: string;
+    className?: string;
+    data?: Profile;
+    error?: string;
+    isLoading?: boolean;
+    readonly?: boolean;
+    onChangeLastName: (value: string) => void;
+    onChangeFirstName: (value: string) => void;
+    onChangeAge: (value: string) => void;
+    onChangeCity: (value: string) => void;
 }
 
-export const ProfileCard = ({ className }: ProfileCardProps) => {
+export const ProfileCard = (props: ProfileCardProps) => {
+    const {
+        className,
+        data,
+        error,
+        isLoading,
+        readonly,
+        onChangeFirstName,
+        onChangeLastName,
+        onChangeAge,
+        onChangeCity,
+    } = props;
     const { t } = useTranslation();
-    const profileData = useSelector(getProfileData);
-    const isLoading = useSelector(getProfileIsLoading);
-    const error = useSelector(getProfileError);
+
+    if (isLoading) {
+        return (
+            <div className={classNames(s.ProfileCard, {}, [className, s.loading])}>
+                <Loader />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className={classNames(s.ProfileCard, {}, [className, s.error])}>
+                <Text
+                    theme={TextTheme.ERROR}
+                    title={t('Произошла ошибка')}
+                    text={t('Попробуйте обновить страницу')}
+                    align={TextAlign.CENTER}
+                />
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(s.ProfileCard, {}, [className])}>
-            <div className={s.header}>
-                <Text title={t('Профиль')} />
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    className={s.editBtn}
-                >
-                    {t('Редактировать')}
-                </Button>
-            </div>
-            <div className={s.data}>
+            <div>
                 <Input
-                    value={profileData?.first}
+                    value={data?.firstname}
                     placeholder={t('Ваше имя')}
                     className={s.input}
+                    onChange={onChangeFirstName}
+                    readonly={readonly}
                 />
                 <Input
-                    value={profileData?.lastname}
+                    value={data?.lastname}
                     placeholder={t('Ваша фамилия')}
                     className={s.input}
+                    onChange={onChangeLastName}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.age}
+                    placeholder={t('Ваш возраст')}
+                    className={s.input}
+                    onChange={onChangeAge}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.city}
+                    placeholder={t('Ваш город')}
+                    className={s.input}
+                    onChange={onChangeCity}
+                    readonly={readonly}
                 />
             </div>
         </div>
