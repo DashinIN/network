@@ -53,5 +53,5 @@ server.use(router);
 
 // запуск сервера
 server.listen(5000, () => {
-    console.log('server is running on 5000 port');
+    console.log('server is running on 8000 port');
 });
