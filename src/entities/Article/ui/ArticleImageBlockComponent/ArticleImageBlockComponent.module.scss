@@ -1,0 +1,14 @@
+.ArticleImageBlockComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img {
+    max-width: 100%;
+    margin-bottom: 8px;
+}
+
+.copyIcon {
+    stroke: var(--primary-color);
+}
