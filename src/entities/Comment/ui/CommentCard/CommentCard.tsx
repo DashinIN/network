@@ -28,6 +28,7 @@ export const CommentCard = (props: CommentCardProps) => {
                         border="50%"
                     />
                     <Skeleton
+                        className={s.username}
                         height={16}
                         width={100}
                     />
