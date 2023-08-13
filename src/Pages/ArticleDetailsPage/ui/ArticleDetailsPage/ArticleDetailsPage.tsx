@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { articleDetaisCommentsReducer, getArticleComments } from '../../model/slices/articleDetaisCommentsSlice';
 import s from './ArticleDetailsPage.module.scss';
@@ -48,14 +49,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)));
     if (!id) {
         return (
-            <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
                 {t('Статья не найдена')}
-            </div>
+            </Page>
         );
     }
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
                 <Button
                     onClick={onBackToList}
                     theme={ButtonTheme.OUTLINE}
@@ -72,7 +73,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     comments={comments}
                     isLoading={commentsIsLoading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
