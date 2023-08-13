@@ -1,15 +1,17 @@
 /* eslint-disable max-len */
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
+import { memo, useCallback } from 'react';
+import {
+    Article, ArticleList, ArticleView, ArticleViewSelector,
+} from 'entities/Article';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { fetchArticlesList } from '../../modal/services/fetchArticlesList/fetchArticlesList';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../modal/selectors/articlesPageSelectors';
-import { articlesPageReducer, getArticles } from '../../modal/slices/ArticlesPageSlice';
+import { articlesPageActions, articlesPageReducer, getArticles } from '../../modal/slices/ArticlesPageSlice';
 import s from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -29,13 +31,22 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
 
+    const onChangeView = useCallback((view: ArticleView) => {
+        dispatch(articlesPageActions.setView(view));
+    }, [dispatch]);
+
     useInitialEffect(() => {
         dispatch(fetchArticlesList());
+        dispatch(articlesPageActions.initState());
     });
 
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(s.ArticlesPage, {}, [className])}>
+                <ArticleViewSelector
+                    view={view}
+                    onViewClick={onChangeView}
+                />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
