@@ -90,7 +90,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length

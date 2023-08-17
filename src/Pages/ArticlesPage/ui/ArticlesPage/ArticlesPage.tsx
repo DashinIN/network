@@ -8,9 +8,9 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
-import { fetchNextArticlesPage } from 'Pages/ArticlesPage/modal/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { fetchArticlesList } from '../../modal/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlesPage } from '../../modal/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../modal/services/initArticlesPage/initArticlesPage';
 import {
     getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView,
 } from '../../modal/selectors/articlesPageSelectors';
@@ -43,8 +43,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({ page: 1 }));
+        dispatch(initArticlesPage());
     });
 
     if (error) {
@@ -61,7 +60,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames(s.ArticlesPage, {}, [className])}
