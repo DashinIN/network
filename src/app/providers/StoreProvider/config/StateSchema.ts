@@ -13,13 +13,13 @@ import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
+import { UISchema } from 'features/UI';
 import { AddCommentFormSchema } from 'features/addCommentForm';
-import { To } from 'history';
-import { NavigateOptions } from 'react-router';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    ui: UISchema;
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
