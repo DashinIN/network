@@ -118,6 +118,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             />
         );
     } else {
+        const types = <Text text={article?.type.join(', ')} className={s.types} />;
+
         content = (
             <>
                 <div className={s.avatar__wrapper}>
@@ -147,7 +149,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     />
                     <Text text={article?.createdAt} />
                 </div>
-
+                <div className={s.article__info}>
+                    {types}
+                </div>
                 {
                     article?.blocks.map(renderBlock)
                 }

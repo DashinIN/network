@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { Card } from 'shared/ui/Card/Card';
@@ -54,7 +54,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                         <Text text={article.user.username} className={s.username} />
                         <Text text={article.createdAt} className={s.date} />
                     </div>
-                    <Text title={article.title} className={s.title} />
+                    <Text title={article.title} className={s.title} size={TextSize.L} />
                     {types}
                     <img className={s.img} alt={article.title} src={article.img} />
                     {textBlock && (
