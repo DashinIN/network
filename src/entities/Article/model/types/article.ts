@@ -37,21 +37,22 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
 export enum ArticleType {
-    ДРАММА = 'Драмма',
-    РОМАНТИКА = 'Романтика',
-    ШКОЛА = 'Школа',
-    СЕНЕН = 'Сенен',
-    КОМЕДИЯ = 'Комедия',
-    РАБОТА = 'Работа',
-    СЕДЗЕ = 'Седзе',
-    ПОВСЕДНЕВНОСТЬ = 'Повседневность',
-    СВЕРХЪЕСТЕСТВЕННОЕ = 'Сверхъестественное',
-    ДЕТЕКТИВ = 'Детектив',
-    ТРИЛЛЕР = 'Триллер',
-    ЭКШЕН = 'Экшен',
-    ПРИКЛЮЧЕНИЯ = 'Приключения',
-    ФАНТАСТИКА = 'Фантастика',
-    ФЕНТЕЗИ = 'Фентези',
+    ALL = 'ALL',
+    DRAMMA = 'DRAMMA',
+    ROMANCE = 'ROMANCE',
+    SCHOOL = 'SCHOOL',
+    SENEN = 'SENEN',
+    COMEDY = 'COMEDY',
+    WORK = 'WORK',
+    SEDZE = 'SEDZE',
+    PICEOFLIFE = 'PICEOFLIFE',
+    SUPERNATURAL = 'SUPERNATURAL',
+    DETECTIVE = 'DETECTIVE',
+    THRILLER = 'THRILLER',
+    ACTION = 'ACTION',
+    ADVENTURE = 'ADVENTURE',
+    FANTASTIC = 'FANTASTIC',
+    FANTASY = 'FANTASY',
 }
 
 export enum ArticleView {

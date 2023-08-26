@@ -1,4 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextSize } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import s from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -19,6 +21,8 @@ export const ArticleList = (props: ArticleListProps) => {
         view = ArticleView.SMALL,
     } = props;
 
+    const { t } = useTranslation();
+
     const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 6 : 2)
         .fill(0)
         .map((item, index) => (
@@ -33,6 +37,14 @@ export const ArticleList = (props: ArticleListProps) => {
             key={article.id}
         />
     );
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(s.ArticleList, {}, [className, s[view]])}>
+                <Text size={TextSize.L} text={t('Страницы не найдены')} />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(s.ArticleList, {}, [className, s[view]])}>
