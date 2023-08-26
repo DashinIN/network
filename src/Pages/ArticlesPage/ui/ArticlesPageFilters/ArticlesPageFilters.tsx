@@ -9,6 +9,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
+import { fetchArticlesList } from 'Pages/ArticlesPage/modal/services/fetchArticlesList/fetchArticlesList';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { articlesPageActions } from '../../modal/slices/ArticlesPageSlice';
 import {
     getArticlesPageOrder,
@@ -34,17 +36,29 @@ export const ArticlesPageFilters = ({ className }: ArticlesPageFiltersProps) => 
         dispatch(articlesPageActions.setView(view));
     }, [dispatch]);
 
+    const fetchData = useCallback(() => {
+        dispatch(fetchArticlesList({ replace: true }));
+    }, [dispatch]);
+
+    const debouncedFetchData = useDebounce(fetchData, 500);
+
     const onChangeSort = useCallback((newSort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(newSort));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        debouncedFetchData();
+    }, [dispatch, debouncedFetchData]);
 
     const onChangeOrder = useCallback((newOrder: SortOrder) => {
         dispatch(articlesPageActions.setOrder(newOrder));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        debouncedFetchData();
+    }, [dispatch, debouncedFetchData]);
 
     const onChangeSearch = useCallback((seach: string) => {
         dispatch(articlesPageActions.setSearch(seach));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        debouncedFetchData();
+    }, [dispatch, debouncedFetchData]);
 
     return (
         <div className={classNames(s.ArticlesPageFilters, {}, [className])}>
