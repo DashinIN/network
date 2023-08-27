@@ -21,3 +21,14 @@ body {
     display: flex;
 }
 
+
+*::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+    background-color:  var(--inverted-primary-color);	
+}
+
+*::-webkit-scrollbar-thumb{
+    border-radius: 8px;
+    background-color:  var(--primary-color);	
+}

@@ -1,4 +1,5 @@
 import { StoryFn } from '@storybook/react';
+import { articleDetailsPageReducer } from 'Pages/ArticleDetailsPage/model/slices';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articeDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { profileReducer } from 'entities/Profile';
@@ -11,7 +12,7 @@ const defaultAsyncReducers: ReducersList = {
     profile: profileReducer,
     articleDetails: articeDetailsReducer,
     addCommentForm: addCommentFormReducer,
-    articleDetailsComments: articeDetailsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 export const StoreDecorator = (

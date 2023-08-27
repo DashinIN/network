@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { HTMLAttributeAnchorTarget } from 'react';
 import s from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -11,6 +12,7 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
    }
 
 export const ArticleList = (props: ArticleListProps) => {
@@ -19,6 +21,7 @@ export const ArticleList = (props: ArticleListProps) => {
         articles,
         isLoading,
         view = ArticleView.SMALL,
+        target,
     } = props;
 
     const { t } = useTranslation();
@@ -35,6 +38,7 @@ export const ArticleList = (props: ArticleListProps) => {
             view={view}
             className={s.card}
             key={article.id}
+            target={target}
         />
     );
 

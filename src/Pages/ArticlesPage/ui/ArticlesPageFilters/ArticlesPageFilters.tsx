@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import {
     ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector,
 } from 'entities/Article';
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -11,7 +11,6 @@ import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from 'Pages/ArticlesPage/modal/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
 import { articlesPageActions } from '../../modal/slices/ArticlesPageSlice';
