@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface ArticleTypeTabsProps {
  className?: string;
@@ -12,15 +13,42 @@ interface ArticleTypeTabsProps {
 
 export const ArticleTypeTabs = (props: ArticleTypeTabsProps) => {
     const { className, value, onChangeType } = props;
+    const { t } = useTranslation();
 
-    const typeTabs = useMemo<TabItem[]>(() => {
-        const typetabs: { value: string; content: ArticleType; }[] = [];
-        Object.entries(ArticleType).forEach(([type, value]) => typetabs.push({
-            value,
-            content: value,
-        }));
-        return typetabs;
-    }, []);
+    const typeTabs = useMemo<TabItem[]>(() => [
+        {
+            value: ArticleType.ALL,
+            content: t('Все'),
+        },
+        {
+            value: ArticleType.ACTION,
+            content: t('Экшен'),
+        },
+        {
+            value: ArticleType.ADVENTURE,
+            content: t('Приключения'),
+        },
+        {
+            value: ArticleType.COMEDY,
+            content: t('Комедия'),
+        },
+        {
+            value: ArticleType.DRAMMA,
+            content: t('Драмма'),
+        },
+        {
+            value: ArticleType.ROMANCE,
+            content: t('Романтика'),
+        },
+        {
+            value: ArticleType.SCHOOL,
+            content: t('Школа'),
+        },
+        {
+            value: ArticleType.THRILLER,
+            content: t('Триллер'),
+        },
+    ], [t]);
 
     const onTabClick = useCallback((tab: TabItem) => {
         onChangeType(tab.value as ArticleType);

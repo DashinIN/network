@@ -33,10 +33,7 @@
       "createdAt": "06.07.2023",
       "userId": "1",
       "type": [
-        "ACTION",
-        "FANTASY",
-        "SCHOOL",
-        "SENEN"
+        "ACTION"
       ],
       "blocks": [
         {
@@ -59,9 +56,7 @@
       "createdAt": "01.07.2023",
       "userId": "1",
       "type": [
-        "SCHOOL",
-        "ROMANCE",
-        "SENEN"
+        "SCHOOL"
       ],
       "blocks": [
         {
@@ -83,9 +78,7 @@
       "createdAt": "10.01.2021",
       "userId": "1",
       "type": [
-        "SCHOOL",
-        "ROMANCE",
-        "SENEN"
+        "ROMANCE"
       ],
       "blocks": [
         {
@@ -107,9 +100,7 @@
       "createdAt": "09.01.2022",
       "userId": "1",
       "type": [
-        "ROMANCE",
-        "SCHOOL",
-        "SENEN"
+        "ROMANCE"
       ],
       "blocks": [
         {
@@ -133,10 +124,7 @@
       "createdAt": "07.08.2009",
       "userId": "1",
       "type": [
-        "DRAMMA",
-        "ROMANCE",
-        "SCHOOL",
-        "SEDZE"
+        "ROMANCE"
       ],
       "blocks": [
         {
@@ -159,10 +147,7 @@
       "createdAt": "07.04.2007",
       "userId": "1",
       "type": [
-        "COMEDY",
-        "ROMANCE",
-        "SCHOOL",
-        "SEDZE"
+        "COMEDY"
       ],
       "blocks": [
         {
@@ -184,9 +169,6 @@
       "createdAt": "02.04.2010",
       "userId": "1",
       "type": [
-        "SEDZE",
-        "COMEDY",
-        "ROMANCE",
         "SCHOOL"
       ],
       "blocks": [
@@ -211,11 +193,7 @@
       "createdAt": "30.06.1999",
       "userId": "1",
       "type": [
-        "SENEN",
-        "COMEDY",
-        "DRAMMA",
-        "SCHOOL",
-        "WORK"
+        "COMEDY"
       ],
       "blocks": [
         {
@@ -238,9 +216,7 @@
       "createdAt": "08.04.2016",
       "userId": "1",
       "type": [
-        "COMEDY",
-        "SCHOOL",
-        "SENEN"
+        "COMEDY"
       ],
       "blocks": [
         {
@@ -262,11 +238,7 @@
       "createdAt": "06.04.2019",
       "userId": "1",
       "type": [
-        "DRAMMA",
-        "ROMANCE",
-        "SUPERNATURAL",
-        "SCHOOL",
-        "SEDZE"
+        "DRAMMA"
       ],
       "blocks": [
         {
@@ -288,8 +260,6 @@
       "createdAt": "04.10.2012",
       "userId": "1",
       "type": [
-        "COMEDY",
-        "ROMANCE",
         "SCHOOL"
       ],
       "blocks": [
@@ -312,8 +282,6 @@
       "createdAt": "09.10.2012",
       "userId": "1",
       "type": [
-        "DRAMMA",
-        "ROMANCE",
         "SCHOOL"
       ],
       "blocks": [
@@ -337,8 +305,7 @@
       "createdAt": "03.07.2021",
       "userId": "1",
       "type": [
-        "DRAMMA",
-        "ROMANCE"
+        "DRAMMA"
       ],
       "blocks": [
         {
@@ -360,9 +327,7 @@
       "createdAt": "12.04.2023",
       "userId": "1",
       "type": [
-        "DRAMMA",
-        "SUPERNATURAL",
-        "SENEN"
+        "DRAMMA"
       ],
       "blocks": [
         {
@@ -384,10 +349,7 @@
       "createdAt": "16.04.2022",
       "userId": "1",
       "type": [
-        "DETECTIVE",
-        "SUPERNATURAL",
-        "THRILLER",
-        "SENEN"
+        "THRILLER"
       ],
       "blocks": [
         {
@@ -411,10 +373,7 @@
       "createdAt": "01.04.2023",
       "userId": "1",
       "type": [
-        "ADVENTURE",
-        "FANTASTIC",
-        "DETECTIVE",
-        "SENEN"
+        "ADVENTURE"
       ],
       "blocks": [
         {
@@ -436,9 +395,7 @@
       "createdAt": "12.10.2022",
       "userId": "1",
       "type": [
-        "ACTION",
-        "FANTASY",
-        "SENEN"
+        "ACTION"
       ],
       "blocks": [
         {
@@ -461,9 +418,7 @@
       "createdAt": "04.04.2023",
       "userId": "1",
       "type": [
-        "DRAMMA",
-        "SCHOOL",
-        "SENEN"
+        "SCHOOL"
       ],
       "blocks": [
         {
@@ -485,10 +440,7 @@
       "createdAt": "15.04.2006",
       "userId": "1",
       "type": [
-        "DRAMMA",
-        "ROMANCE",
-        "FANTASTIC",
-        "SCHOOL"
+        "DRAMMA"
       ],
       "blocks": [
         {
@@ -512,9 +464,7 @@
       "createdAt": "19.07.2019",
       "userId": "1",
       "type": [
-        "DRAMMA",
-        "ROMANCE",
-        "FANTASY"
+        "DRAMMA"
       ],
       "blocks": [
         {
@@ -637,6 +587,12 @@
       "userId": "1",
       "text": "sdf",
       "id": "G2E1Wxs"
+    },
+    {
+      "articleId": "12",
+      "userId": "1",
+      "text": "МММ",
+      "id": "cP--xlZ"
     }
   ],
   "users": [

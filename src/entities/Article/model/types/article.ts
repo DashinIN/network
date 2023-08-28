@@ -41,18 +41,10 @@ export enum ArticleType {
     DRAMMA = 'DRAMMA',
     ROMANCE = 'ROMANCE',
     SCHOOL = 'SCHOOL',
-    SENEN = 'SENEN',
     COMEDY = 'COMEDY',
-    WORK = 'WORK',
-    SEDZE = 'SEDZE',
-    PICEOFLIFE = 'PICEOFLIFE',
-    SUPERNATURAL = 'SUPERNATURAL',
-    DETECTIVE = 'DETECTIVE',
     THRILLER = 'THRILLER',
     ACTION = 'ACTION',
     ADVENTURE = 'ADVENTURE',
-    FANTASTIC = 'FANTASTIC',
-    FANTASY = 'FANTASY',
 }
 
 export enum ArticleView {
