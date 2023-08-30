@@ -12,6 +12,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import {
     getArticleDetailsData,
@@ -122,47 +123,47 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
         content = (
             <>
-                <div className={s.avatar__wrapper}>
+                <HStack justify="center" max>
                     <Avatar
                         size={200}
                         src={article?.img}
                         className={s.avatar}
                     />
-                </div>
-                <Text
-                    className={s.title}
-                    size={TextSize.L}
-                    title={article?.title}
-                    text={article?.subtitle}
-                />
-                <div className={s.article__info}>
-                    <Icon
-                        className={s.icon}
-                        Svg={EyeIcon}
+                </HStack>
+                <VStack gap="4">
+                    <Text
+                        className={s.title}
+                        size={TextSize.L}
+                        title={article?.title}
+                        text={article?.subtitle}
                     />
-                    <Text text={String(article?.views)} />
-                </div>
-                <div className={s.article__info}>
-                    <Icon
-                        className={s.icon}
-                        Svg={CalendarIcon}
-                    />
-                    <Text text={article?.createdAt} />
-                </div>
-                <div className={s.article__info}>
-                    {types}
-                </div>
-                {
-                    article?.blocks.map(renderBlock)
-                }
+                    <HStack>
+                        <Icon
+                            className={s.icon}
+                            Svg={EyeIcon}
+                        />
+                        <Text text={String(article?.views)} />
+                    </HStack>
+                    <HStack gap="8">
+                        <Icon
+                            className={s.icon}
+                            Svg={CalendarIcon}
+                        />
+                        <Text text={article?.createdAt} />
+                    </HStack>
+                    <HStack gap="8">
+                        {types}
+                    </HStack>
+                </VStack>
+                { article?.blocks.map(renderBlock) }
             </>
         );
     }
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(s.ArticleDetails, {}, [className])}>
+            <VStack gap="16" max className={classNames(s.ArticleDetails, {}, [className])}>
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });

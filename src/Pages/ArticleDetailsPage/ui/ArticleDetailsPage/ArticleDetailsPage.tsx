@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Page } from 'widgets/Page/Page';
 import { articleDetailsPageReducer } from 'Pages/ArticleDetailsPage/model/slices';
+import { VStack } from 'shared/ui/Stack';
 import { getArticleRecomendations } from '../../model/slices/articleDetailsRecomendationsSlice';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slices/articleDetaisCommentsSlice';
@@ -61,6 +62,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
+
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text
@@ -84,6 +86,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     comments={comments}
                     isLoading={commentsIsLoading}
                 />
+
             </Page>
         </DynamicModuleLoader>
     );
