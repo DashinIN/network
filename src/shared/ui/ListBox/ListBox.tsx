@@ -43,13 +43,17 @@ export function ListBox(props: ListBoxProps) {
 
     const optionsClasses = [mapDirectionClass[direction]];
 
+    const mods: Mods = {
+        [s.disabled]: readonly,
+    };
+
     return (
         <HStack gap="4">
-            {label && <span>{`${label}>`}</span>}
+            {label && <span className={classNames('', mods, [className])}>{`${label}>`}</span>}
             <HListBox
                 disabled={readonly}
                 as="div"
-                className={classNames(s.ListBox, {}, [className])}
+                className={classNames(s.ListBox, mods, [className])}
                 value={value}
                 onChange={onChange}
             >
