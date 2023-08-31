@@ -30,6 +30,7 @@ interface ArticlesPageFiltersProps {
 export const ArticlesPageFilters = ({ className }: ArticlesPageFiltersProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+
     const view = useSelector(getArticlesPageView);
     const sort = useSelector(getArticlesPageSort);
     const order = useSelector(getArticlesPageOrder);
