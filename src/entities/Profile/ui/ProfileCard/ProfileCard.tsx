@@ -43,7 +43,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCurrency,
         onChangeCountry,
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     if (isLoading) {
         return (
@@ -83,6 +83,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 className={s.input}
                 onChange={onChangeFirstName}
                 readonly={readonly}
+                data-testid="ProfileCard.firstname"
             />
             <Input
                 value={data?.lastname}
@@ -90,6 +91,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 className={s.input}
                 onChange={onChangeLastName}
                 readonly={readonly}
+                data-testid="ProfileCard.lastname"
             />
             <Input
                 value={data?.age}

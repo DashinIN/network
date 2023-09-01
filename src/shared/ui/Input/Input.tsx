@@ -29,7 +29,7 @@ export const Input = memo((props: InputProps) => {
         placeholder,
         autofocus,
         readonly,
-        ...OtherProps
+        ...otherProps
     } = props;
 
     const ref = useRef<HTMLInputElement>(null);
@@ -53,7 +53,7 @@ export const Input = memo((props: InputProps) => {
     };
 
     const onSelect = (e: any) => {
-        setCaretPosition(e?.target?.selectionStart);
+        setCaretPosition(e?.target?.selectionStart || 0);
     };
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,7 +83,7 @@ export const Input = memo((props: InputProps) => {
                     onBlur={onBlur}
                     onSelect={onSelect}
                     readOnly={readonly}
-                    {...OtherProps}
+                    {...otherProps}
                 />
                 {isCaretVisible
                 && (
