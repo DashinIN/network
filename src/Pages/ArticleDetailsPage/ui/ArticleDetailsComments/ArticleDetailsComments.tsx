@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { CommentList } from 'entities/Comment';
 import { AddCommentForm } from 'features/addCommentForm';
 import { t } from 'i18next';
-import { useCallback } from 'react';
+import { Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextSize } from 'shared/ui/Text/Text';
@@ -15,7 +15,7 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 
 interface ArticleDetailsCommentsProps {
  className?: string;
- id: string;
+ id?: string;
 }
 
 export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
@@ -39,7 +39,10 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
                 size={TextSize.L}
                 title={t('Комментарии')}
             />
-            <AddCommentForm onSendComment={onSendComment} />
+            <Suspense fallback={<div>...</div>}>
+                <AddCommentForm onSendComment={onSendComment} />
+            </Suspense>
+
             <CommentList
                 comments={comments}
                 isLoading={commentsIsLoading}
