@@ -7,7 +7,7 @@ import { ForbiddenPage } from 'Pages/ForbiddenPage';
 import { MainPage } from 'Pages/MainPage';
 import { NotFoundPage } from 'Pages/NotFoundPage';
 import { ProfilePage } from 'Pages/ProfilePage';
-import { userRole } from 'entities/User/model/types/user';
+import { userRole } from 'entities/User';
 import { RouteProps } from 'react-router-dom';
 
 export type AppRoutesProps = RouteProps & {

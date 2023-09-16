@@ -2,10 +2,13 @@ export {
     userReducer,
     userActions,
 } from './model/slice/userSlice';
-export {
+export type {
     User,
     UserSchema,
 } from './model/types/user';
+export {
+    userRole,
+} from './model/consts/consts';
 export {
     isUserAdmin,
     isUserManager,
