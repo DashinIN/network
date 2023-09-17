@@ -2,7 +2,7 @@ import { AboutPage } from 'Pages/AboutPage';
 import { AdminPanelPage } from 'Pages/AdminPanelPage';
 import { ArticleDetailsPage } from 'Pages/ArticleDetailsPage';
 import { ArticleEditPage } from 'Pages/ArticleEditPage';
-import ArticlesPage from 'Pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
+import { ArticlesPage } from 'Pages/ArticlesPage';
 import { ForbiddenPage } from 'Pages/ForbiddenPage';
 import { MainPage } from 'Pages/MainPage';
 import { NotFoundPage } from 'Pages/NotFoundPage';

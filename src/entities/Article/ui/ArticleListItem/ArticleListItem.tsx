@@ -10,7 +10,6 @@ import { HTMLAttributeAnchorTarget } from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import s from './ArticleListItem.module.scss';
-
 import { ArticleTextBlockComponent } from '../ArticleTextBlockCoomponent/ArticleTextBlockComponent';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
