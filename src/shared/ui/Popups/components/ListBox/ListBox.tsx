@@ -1,10 +1,12 @@
 import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
-import { HStack } from '../Stack';
-import { Button } from '../Button/Button';
+import { HStack } from '../../../Stack';
+import { Button } from '../../../Button/Button';
 import s from './ListBox.module.scss';
+import { mapDirectionClass } from '../../styles/consts';
+import popupS from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
     value: string;
@@ -23,13 +25,6 @@ interface ListBoxProps {
     label?: string;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': s.optionsBottomLeft,
-    'bottom right': s.optionsBottomRight,
-    'top left': s.optionsTopLeft,
-    'top right': s.optionsTopRight,
-};
-
 export function ListBox(props: ListBoxProps) {
     const {
         className,
@@ -44,17 +39,13 @@ export function ListBox(props: ListBoxProps) {
 
     const optionsClasses = [mapDirectionClass[direction]];
 
-    const mods: Mods = {
-        [s.disabled]: readonly,
-    };
-
     return (
         <HStack gap="4">
-            {label && <span className={classNames('', mods, [className])}>{`${label}>`}</span>}
+            {label && <span>{`${label}>`}</span>}
             <HListBox
                 disabled={readonly}
                 as="div"
-                className={classNames(s.ListBox, mods, [className])}
+                className={classNames(s.ListBox, {}, [className, popupS.popup])}
                 value={value}
                 onChange={onChange}
             >
@@ -76,8 +67,8 @@ export function ListBox(props: ListBoxProps) {
                                     className={classNames(
                                         s.item,
                                         {
-                                            [s.active]: active,
-                                            [s.disabled]: item.disabled,
+                                            [popupS.active]: active,
+                                            [popupS.disabled]: item.disabled,
                                         },
                                     )}
                                 >
