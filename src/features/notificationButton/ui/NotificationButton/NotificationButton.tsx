@@ -4,6 +4,9 @@ import { NotificationList } from 'entities/Notification';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
+import { useCallback, useState } from 'react';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { BrowserView, MobileView } from 'react-device-detect';
 import s from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -11,18 +14,40 @@ interface NotificationButtonProps {
 }
 
 export const NotificationButton = ({ className }: NotificationButtonProps) => {
-    return (
-        <Popover
-            className={classNames('', {}, [className])}
-            direction="bottom left"
-            trigger={(
-                <Button theme={ButtonTheme.CLEAR}>
-                    <Icon Svg={NotificationIcon} inverted />
-                </Button>
-            )}
-        >
-            <NotificationList className={s.notifications} />
-        </Popover>
+    const [isOpen, setIsOpen] = useState(false);
 
+    const onOpenDrawer = useCallback(() => {
+        setIsOpen(true);
+    }, []);
+
+    const onCloseDrawer = useCallback(() => {
+        setIsOpen(false);
+    }, []);
+
+    const trigger = (
+        <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
+            <Icon Svg={NotificationIcon} inverted />
+        </Button>
+    );
+
+    return (
+        <>
+            <BrowserView>
+                <Popover
+                    className={classNames('', {}, [className])}
+                    direction="bottom left"
+                    trigger={trigger}
+                >
+                    <NotificationList className={s.notifications} />
+                </Popover>
+            </BrowserView>
+            <MobileView>
+                {trigger}
+                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                    <NotificationList />
+                </Drawer>
+            </MobileView>
+
+        </>
     );
 };
