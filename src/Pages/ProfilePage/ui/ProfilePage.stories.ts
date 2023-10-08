@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import avatar from 'shared/assets/tests/storybook.png';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import avatar from '@/shared/assets/tests/storybook.png';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ProfilePage } from '../index';
 
 const meta: Meta<typeof ProfilePage> = {
