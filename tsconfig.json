@@ -14,7 +14,7 @@
       },
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
-      "isolatedModules": true
+      "isolatedModules": true,
     },
     "ts-node": {
         "compilerOptions": {
@@ -24,6 +24,7 @@
       "include": [   
         "./config/jest/setupTests.ts",
         "./src/**/*.ts",
-        "./src/**/*.tsx"
-, "src/shared/config/storybook/StyleDecorator/StyleDecorator.tsz"      ],
+        "./src/**/*.tsx",
+        "src/shared/config/storybook/StyleDecorator/StyleDecorator.tsx"
+ ],
   }
