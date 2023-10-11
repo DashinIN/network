@@ -15,6 +15,8 @@ export const NotificationItem = (props: NotificationItemProps) => {
         item,
     } = props;
 
+    const path = new URL(window.location.href).host;
+
     const content = (
         <Card
             theme={CardTheme.OUTLINED}
@@ -28,8 +30,10 @@ export const NotificationItem = (props: NotificationItemProps) => {
     );
 
     if (item.href) {
+        console.log(path);
+        console.log(item.href);
         return (
-            <a target="__blank" href={item.href} className={s.link}>
+            <a target="__blank" href={`http://${path}${item.href}`} className={s.link}>
                 {content}
             </a>
         );
