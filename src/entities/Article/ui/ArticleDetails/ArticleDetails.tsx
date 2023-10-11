@@ -86,8 +86,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <>
                 <Skeleton
                     className={s.avatar}
-                    width={200}
-                    height={200}
+                    width={300}
+                    height={300}
                     border="50%"
                 />
                 <Skeleton
@@ -126,7 +126,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <>
                 <HStack justify="center" max>
                     <Avatar
-                        size={200}
+                        size={300}
                         src={article?.img}
                         className={s.avatar}
                     />
