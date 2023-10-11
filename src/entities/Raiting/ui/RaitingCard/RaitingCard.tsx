@@ -92,7 +92,11 @@ export const RaitingCard = (props: RaitingCardProps) => {
                     </Modal>
                 </BrowserView>
                 <MobileView>
-                    <Drawer isOpen={isModalOpen} lazy>
+                    <Drawer
+                        isOpen={isModalOpen}
+                        onClose={cancelHandler}
+                        lazy
+                    >
                         <VStack gap="32">
                             {modalContent}
                             <Button

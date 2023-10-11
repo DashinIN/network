@@ -30,8 +30,6 @@ export const NotificationItem = (props: NotificationItemProps) => {
     );
 
     if (item.href) {
-        console.log(path);
-        console.log(item.href);
         return (
             <a target="__blank" href={`http://${path}${item.href}`} className={s.link}>
                 {content}
