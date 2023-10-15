@@ -16,8 +16,9 @@ interface RaitingCardProps {
  title?: string;
  feedbackTitle?: string;
  hasFeedback?: boolean;
- onCancel?: (starsCount: number) => void
- onAccept?: (starsCount: number, feedback?: string) => void
+ onCancel?: (starsCount: number) => void;
+ onAccept?: (starsCount: number, feedback?: string) => void;
+ rate?: number;
 }
 
 export const RaitingCard = (props: RaitingCardProps) => {
@@ -28,12 +29,13 @@ export const RaitingCard = (props: RaitingCardProps) => {
         title,
         feedbackTitle,
         hasFeedback,
+        rate = 0,
     } = props;
 
     const { t } = useTranslation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -67,12 +69,20 @@ export const RaitingCard = (props: RaitingCardProps) => {
     );
 
     return (
-        <Card className={classNames('', {}, [className])}>
-            <VStack align="center" gap="8">
+        <Card max className={className}>
+            <VStack max align="center" gap="8">
                 <Text title={title} />
-                <StarRaiting size={40} onSelect={onSelectStars} />
+                <StarRaiting
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
                 <BrowserView>
-                    <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
+                    <Modal
+                        isOpen={isModalOpen}
+                        onClose={cancelHandler}
+                        lazy
+                    >
                         <VStack max gap="32">
                             {modalContent}
                             <HStack max gap="16" justify="end">
