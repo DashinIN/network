@@ -71,7 +71,13 @@ export const RaitingCard = (props: RaitingCardProps) => {
     return (
         <Card max className={className}>
             <VStack max align="center" gap="8">
-                <Text title={title} />
+                <Text
+                    title={
+                        starsCount
+                            ? t('Спасибо за оценку!')
+                            : title
+                    }
+                />
                 <StarRaiting
                     selectedStars={starsCount}
                     size={40}
