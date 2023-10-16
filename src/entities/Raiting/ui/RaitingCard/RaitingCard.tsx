@@ -2,14 +2,14 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text/Text';
-import { StarRaiting } from '@/shared/ui/StarRaiting/StarRaiting';
-import { Modal } from '@/shared/ui/Modal/Modal';
-import { Input } from '@/shared/ui/Input/Input';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Text } from '@/shared/ui/Text';
+import { StarRaiting } from '@/shared/ui/StarRaiting';
+import { Modal } from '@/shared/ui/Modal';
+import { Input } from '@/shared/ui/Input';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
+import { Drawer } from '@/shared/ui/Drawer';
 
 interface RaitingCardProps {
  className?: string;
